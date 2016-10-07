@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-
+  get 'stat' => 'pages#stat'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

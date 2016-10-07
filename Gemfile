@@ -16,6 +16,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'instagram'
+gem 'insta_scrape', path: "insta_scrape-1.1.0"
+gem 'nokogiri'
 
 group :development, :test do
   gem 'binding_of_caller'
