@@ -8,5 +8,6 @@ class InstaScrape::InstagramUserWithPosts
     @following_count = following_count
     @description = description
     @posts = posts
+    @likes = likes
   end
 end
