@@ -36,11 +36,11 @@ module InstaScrape
     @user = InstaScrape::InstagramUser.new(username, @image, @post_count, @follower_count, @following_count, @description)
   end
 
-  #get user info and posts
+  #get user info and posts and likes
   def self.user_info_and_posts(username)
     scrape_user_info(username)
     scrape_user_posts(username)
-    @user = InstaScrape::InstagramUserWithPosts.new(username, @image, @post_count, @follower_count, @following_count, @description, @posts, @likes)
+    @user = InstaScrape::InstagramUserWithPosts.new(username, @image, @post_count, @follower_count, @following_count, @description, @posts )#, @likes)
   end
 
   #get user posts only
@@ -81,14 +81,14 @@ module InstaScrape
       image = post.find("img")["src"]
       info = InstaScrape::InstagramPost.new(link, image)
       visit link
-      @likes = page.find('section span span').text.to_i
+      # @likes = page.find('section span span').text.to_i
       # byebug
       @posts << info
 
     end
 
     #log
-    @likes /= @posts.length
+    # @likes /= @posts.length
     puts "POST COUNT: #{@posts.length}"
     # self.log_posts
     #return result
