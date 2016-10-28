@@ -16,7 +16,7 @@ class Superuser < ActiveRecord::Base
       count = @profile.follower_count
       # instagram will return 10k for 10000 followers.
       if count.include? 'k'
-        count.gsub('k', '00')
+        count = count.gsub('k', '00')
       end
       count = count.scan(/\d*/).join.to_i
       count

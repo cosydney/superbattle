@@ -82,8 +82,8 @@ module InstaScrape
       info = InstaScrape::InstagramPost.new(link, likes)
       @posts << info
     end
-    puts "POST COUNT: #{@posts.length}"
-    self.log_posts
+    # puts "POST COUNT: #{@posts.length}"
+    # self.log_posts
     #return result
     self.get_likes
     return @posts
@@ -116,7 +116,7 @@ module InstaScrape
   def self.scrape_posts
     begin
       page.find('a', :text => "Load more", exact: true).click
-      max_iteration = 10
+      max_iteration = 2
       iteration = 0
       while iteration < max_iteration do
         iteration += 1
