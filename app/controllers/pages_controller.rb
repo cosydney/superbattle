@@ -10,14 +10,6 @@ class PagesController < ApplicationController
       @username = params[:answer]
       @profile = InstaScrape.user_info(@username)
       @posts = InstaScrape.user_posts(@username)
-      @likes = scrape_insta_likes("https://www.instagram.com/p/BK2ePMmhz9g/")
     end
   end
-
-  def scrape_insta_likes(url)
-    doc = Nokogiri::HTML(open(url))
-    likes = doc.search.xpath('likes')
-    likes
-  end
-
 end

@@ -74,25 +74,26 @@ module InstaScrape
 
   private
   #post iteration method
-  def self.iterate_through_posts
-    all("article div div div a").each do |post|
-
+ def self.iterate_through_posts
+    all("article div div div a").first(10).each do |post|
       link = post["href"]
-      image = post.find("img")["src"]
-      info = InstaScrape::InstagramPost.new(link, image)
-      visit link
-      # @likes = page.find('section span span').text.to_i
-      # byebug
+      # image = post.find("img")["src"]
+      likes = 0;
+      info = InstaScrape::InstagramPost.new(link, likes)
       @posts << info
-
     end
-
-    #log
-    # @likes /= @posts.length
     puts "POST COUNT: #{@posts.length}"
-    # self.log_posts
+    self.log_posts
     #return result
+    self.get_likes
     return @posts
+  end
+
+  def self.get_likes
+    @posts.first(10).each do |post|
+      visit post.link
+      post.likes = page.first('section span span').text.to_i
+    end
   end
 
   #user info scraper method
@@ -173,7 +174,7 @@ module InstaScrape
   def self.log_posts
     @posts.each do |post|
       puts "\n"
-      puts "Image: #{post.image}\n"
+      # puts "Image: #{post.image}\n"
       puts "Link: #{post.link}\n"
       # puts "pouet\n"
     end
