@@ -1,2 +1,27 @@
 class Superuser < ActiveRecord::Base
+attr_accessor :following_count, :engagement_rate, :follower_count, :post_count, :image, :username
+
+    def initialize(username)
+        @profile = InstaScrape.user_info(username)
+        @posts = InstaScrape.user_posts(username)
+        @follower_count = @profile.follower_count.scan(/\d*/).join.to_i
+        @following_count = @profile.following_count
+        @post_count = @profile.post_count
+        @image = @profile.image
+        @username = @profile.username
+        @engagement_rate = engagement_rate
+
+    def engagement_rate
+      total_like = 0
+      @posts.first(10).each do |post|
+        total_like += post.likes
+      end
+      engagement_rate = ((total_like / 10.0) / @follower_count) * 100
+    end
+
+    def self.superbattle_score
+      score = engagement_rate * 10
+    end
+  end
 end
+

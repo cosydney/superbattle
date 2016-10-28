@@ -8,8 +8,8 @@ class PagesController < ApplicationController
       redirect_to root_path
     else
       @username = params[:answer]
-      @profile = InstaScrape.user_info(@username)
-      @posts = InstaScrape.user_posts(@username)
+      @superuser = Superuser.new(@username)
+      # @superusercmp = Superuser.new()
     end
   end
 end
