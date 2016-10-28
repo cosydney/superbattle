@@ -4,12 +4,14 @@ class PagesController < ApplicationController
   def home
   end
   def stat
-    if params[:answer].nil? || params[:answer].empty?
+    if params[:superuser].nil? || params[:superuser].empty? ||
+      params[:usercmp].nil? || params[:usercmp].empty?
       redirect_to root_path
     else
-      @username = params[:answer]
-      @superuser = Superuser.new(@username)
-      # @superusercmp = Superuser.new()
+      username = params[:superuser]
+      usernamecmp = params[:usercmp]
+      @superuser = Superuser.new(username)
+      @usercmp = Superuser.new(usernamecmp)
     end
   end
 end
