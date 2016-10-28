@@ -11,9 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161028082852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "superusers", force: :cascade do |t|
+    t.string   "email"
+    t.string   "insta_username"
+    t.string   "insta_usercomp"
+    t.integer  "engagement_rate"
+    t.integer  "followers_count"
+    t.integer  "number_of_posts"
+    t.integer  "super_score"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
 end
