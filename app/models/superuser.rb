@@ -10,8 +10,9 @@ class Superuser < ActiveRecord::Base
     @username = @profile.username
     @engagement_rate = engagement_rate
     @description = @profile.description
+    @follower_count = follower_count
 
-    def self.follower_count
+    def follower_count
       count = @profile.follower_count
       # instagram will return 10k for 10000 followers.
       if count.include? 'k'
