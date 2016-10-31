@@ -1,3 +1,4 @@
+<div class="text-center"> <%= render 'flashes' %></div>
 <br>
 <div class="text-center">
   <h2>TO DO LOGO </h2>
@@ -5,6 +6,7 @@
 <br>
 <h1 class="text-center">Choose which instagram <br> accounts you want to compare</h1>
 <br>
+
 <div class="text-center">
 <%= simple_form_for(@superuser, html: {class: "form-inline"}, url: stat_path) do |f| %>
     <%= f.error_notification %>
