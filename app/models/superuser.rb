@@ -1,5 +1,5 @@
 class Superuser < ActiveRecord::Base
-  attr_accessor :following_count, :engagement_rate, :followers_count, :number_of_posts, :image, :insta_username, :description
+  # attr_accessor :following_count, :engagement_rate, :followers_count, :number_of_posts, :image, :insta_username, :description
   # validates :insta_username, :insta_usercmp, presence :true
   after_create :scrape_insta
 
@@ -10,18 +10,21 @@ class Superuser < ActiveRecord::Base
     rescue Capybara::ElementNotFound
       redirect_to root_path, notice: "Username not found"
     end
-    byebug
-    self.following_count = @profile.following_count.to_i
+    # self.following_count = @profile.following_count.to_i
     self.number_of_posts = @profile.post_count
-    self.image = @profile.image
+    # self.image = @profile.image
     self.engagement_rate = engagement_rate
-    self.description = @profile.description
-    self.followers_count = followers_count.to_i
+    # self.description = @profile.description
+    # byebug
+    
+
+    self.followers_count = followers_count
     self.super_score = super_score
+    self.save
   end
 
-  def self.followers_count
-    count = @profile.followers_count
+  def followers_count
+    count = @profile.follower_count
       # instagram will return 10k for 10000 followers.
       if count.include? 'k'
         count = count.gsub('k', '00')
@@ -44,16 +47,3 @@ class Superuser < ActiveRecord::Base
       self.engagement_rate * 10
     end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
