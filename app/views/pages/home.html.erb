@@ -6,10 +6,12 @@
 <h1 class="text-center">Choose which instagram <br> accounts you want to compare</h1>
 <br>
 <div class="text-center">
-  <form action="/stat" method="get" class="form-inline">
-    <span id="no1">1 </span><input type="text" name="insta_username" class="form-control red" placeholder="Your insta username">
-    <span id="no2">2 </span><input type="text" name="insta_usercomp" class="form-control blue" placeholder="Your friend insta">
-    <br>
-    <br> <input type="submit" class="btn btn-primary" value="Fight">
-  </form>
+<%= simple_form_for(@superuser, html: {class: "form-inline"}, url: stat_path) do |f| %>
+    <%= f.error_notification %>
+        <span id="no1">1 </span>
+    <%= f.input :insta_username, label: false,required: false, placeholder: 'You',input_html: {class: "red"} %>
+    <span id="no2">2 </span>
+  <%= f.input :insta_usercomp, label: false,required: false, placeholder: 'Him', input_html: {class: "form-control blue"} %>
+    <%= f.button :submit , class: 'btn btn-primary', value: "Fight" %>
+    <% end %>
 </div>
