@@ -16,6 +16,7 @@ class Superuser < ActiveRecord::Base
     self.engagement_rate = engagement_rate
     # self.description = @profile.description
     # byebug
+    
 
     self.followers_count = followers_count
     self.super_score = super_score
