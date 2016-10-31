@@ -9,9 +9,9 @@
 <%= simple_form_for(@superuser, html: {class: "form-inline"}, url: stat_path) do |f| %>
     <%= f.error_notification %>
         <span id="no1">1 </span>
-    <%= f.input :insta_username, label: false,required: false, placeholder: 'You',input_html: {class: "red"} %>
+    <%= f.input :insta_username, label: false,required: false, placeholder: 'You',input_html: {class: "red", id: "red_input"} %>
     <span id="no2">2 </span>
-  <%= f.input :insta_usercomp, label: false,required: false, placeholder: 'Him', input_html: {class: "form-control blue"} %>
+  <%= f.input :insta_usercomp, label: false,required: false, placeholder: 'Him', input_html: {class: "form-control blue", id:"blue_input"} %>
     <%= f.button :submit , class: 'btn btn-primary', value: "Fight" %>
     <% end %>
 </div>
