@@ -10,13 +10,14 @@ class Superuser < ActiveRecord::Base
     rescue Capybara::ElementNotFound
       redirect_to root_path, notice: "Username not found"
     end
+    # byebug
     # self.following_count = @profile.following_count.to_i
     self.number_of_posts = @profile.post_count
     # self.image = @profile.image
     self.engagement_rate = engagement_rate
     # self.description = @profile.description
     # byebug
-    
+
 
     self.followers_count = followers_count
     self.super_score = super_score
