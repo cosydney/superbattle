@@ -7,7 +7,11 @@
   background-image: image-url("SUPER_BATTLE_01.gif");
   width: 66%;
   height: 630px;
-  margin-top: -214px;
+  margin-top: -435px;
+  z-index: -10;
+}
+#new_superuser > input.btn.btn-default.btn-primary {
+  margin-top: 195px;
 }
 
  .form-control {
