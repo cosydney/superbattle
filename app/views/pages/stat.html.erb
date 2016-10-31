@@ -5,21 +5,13 @@
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <span class="text-center">  <%= image_tag @superuser.image %></span>
-      <h2>User name <%= @superuser.username %></h2>
-      <h2> Number of post  <%= @superuser.post_count %></h2>
-      <h2> Follower count  <%= @superuser.follower_count %></h2>
+      <h2>User name <%= @superuser.insta_username %></h2>
+      <h2> Number of post  <%= @superuser.number_of_posts %></h2>
+      <h2> Follower count  <%= @superuser.followers_count %></h2>
       <h2> Following count <%= @superuser.following_count %></h2>
       <h2> Engagement rate <%= @superuser.engagement_rate.to_s.first(4) %> %</h2>
       <h2> Description length <%= @superuser.description.length %> characters</h2>
     </div>
-    <div class="col-xs-12 col-md-6">
-    <span class="text-center"> <%= image_tag @usercmp.image %></span>
-      <h2>User name <%= @usercmp.username %></h2>
-      <h2> Number of post  <%= @usercmp.post_count %></h2>
-      <h2> Follower count  <%= @usercmp.follower_count %></h2>
-      <h2> Following count <%= @usercmp.following_count %></h2>
-      <h2> Engagement rate <%= @usercmp.engagement_rate.to_s.first(4) %> %</h2>
-      <h2> Description length <%= @usercmp.description.length %> characters </h2>
-    </div>
+
   </div>
 </div>
