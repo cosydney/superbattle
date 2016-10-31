@@ -1,19 +1,25 @@
-<div class="text-center"> <%= render 'flashes' %></div>
-<br>
-<div class="text-center">
-  <h2>TO DO LOGO </h2>
-</div>
-<br>
-<h1 class="text-center">Choose which instagram <br> accounts you want to compare</h1>
-<br>
+  <div class="text-center"> <%= render 'flashes' %></div>
+  <br>
+  <div class="text-center">
+    <h2>TO DO LOGO </h2>
+  </div>
+  <br>
+  <h1 class="text-center">Choose which instagram <br> accounts you want to compare</h1>
+  <br>
 
-<div class="text-center">
-<%= simple_form_for(@superuser, html: {class: "form-inline"}, url: stat_path) do |f| %>
+  <div class="text-center">
+    <%= simple_form_for(@superuser, html: {class: "form-inline"}, url: stat_path) do |f| %>
     <%= f.error_notification %>
-        <span id="no1">1 </span>
+    <span id="no1">1 </span>
     <%= f.input :insta_username, label: false,required: false, placeholder: 'You',input_html: {class: "red", id: "red_input"} %>
     <span id="no2">2 </span>
-  <%= f.input :insta_usercomp, label: false,required: false, placeholder: 'Him', input_html: {class: "form-control blue", id:"blue_input"} %>
+    <%= f.input :insta_usercomp, label: false,required: false, placeholder: 'Him/her', input_html: {class: "form-control blue", id:"blue_input"} %>
+    <br>
+    <br>
     <%= f.button :submit , class: 'btn btn-primary', value: "Fight" %>
     <% end %>
+    <%#= image_tag "SUPER_BATTLE_01.gif" %>
+<div class="container">
+
+  </div>
 </div>
