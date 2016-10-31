@@ -3,7 +3,51 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-.form-control {
+ .form-control {
   border-radius: 25px;
   border-width: 4px;
+  height: 31px;
+  font-size: 12px;
 }
+
+#no1{
+  background: $red;
+}
+
+#no2{
+  background: $blue;
+}
+
+span {
+    border: solid transparent;
+    border-radius: 15px;
+    display: inline-block;
+    width: 28px;
+    color: white;
+}
+.red {
+  border-color: $red;
+}
+
+.blue {
+  border-color: $blue;
+}
+
+h1 {
+  color: $gray;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+// span {
+//     height: 60px;
+//     width: 60px;
+//     line-height: 60px;
+
+//     -moz-border-radius: 30px; /* or 50% */
+//     border-radius: 30px; /* or 50% */
+
+//     background-color: black;
+//     color: white;
+//     text-align: center;
+//     font-size: 2em;
+// }
