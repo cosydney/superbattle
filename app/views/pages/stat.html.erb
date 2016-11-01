@@ -26,7 +26,7 @@
                 <br>
                 <h4 class="stats"> <%= @superuser.followers_count %> Followers </h4>
                 <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, explicabo.</p>
-                <h4 class="stats"><%= @superuser.engagement_rate %> commitement rate</h4>
+                <h4 class="stats"><%= @superuser.engagement_rate %>% commitement rate</h4>
                 <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, quibusdam.</p>
                 <h4 class="stats"><%= @superuser.number_of_posts %> Number of posts</h4>
                 <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, eligendi.</p>
@@ -56,7 +56,7 @@
                       <br>
                       <h4 class="stats"> <%= @usercmp.followers_count %> Followers</h4>
                       <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, explicabo.</p>
-                      <h4 class="stats"> <%= @usercmp.engagement_rate %> commitment rate</h4>
+                      <h4 class="stats"> <%= @usercmp.engagement_rate %>% commitment rate</h4>
                       <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, quibusdam.</p>
                       <h4 class="stats"> <%= @usercmp.number_of_posts %> Number of posts</h4>
                       <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, eligendi.</p>
@@ -89,10 +89,10 @@
               <p class="stat_p">
                 Je veux recevoir ces infos:
                 <ul class="list-inline">
-                  <li class="btn-share btn-days"><p class="btn_text"> à chaque fois </p></li>
-                  <li class="btn-share btn-days"><p class="btn_text"> chaque jour </p></li>
-                  <li class="btn-share btn-days"><p class="btn_text"> chaque mois </p></li>
-                  <li class="btn-share btn-days"><p class="btn_text"> chaque semaine </p></li>
+                  <li class="btn-share" id="btn-days"><p class="btn_text"> à chaque fois </p></li>
+                  <li class="btn-share" id="btn-days"><p class="btn_text"> chaque jour </p></li>
+                  <li class="btn-share" id="btn-days"><p class="btn_text"> chaque mois </p></li>
+                  <li class="btn-share" id="btn-days"><p class="btn_text"> chaque semaine </p></li>
                 </ul>
               </p>
               <%= simple_form_for(@superuser, html: {class: "form-inline"}, url: stat_path) do |f| %>
