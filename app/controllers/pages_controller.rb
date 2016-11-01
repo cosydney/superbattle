@@ -9,6 +9,9 @@ class PagesController < ApplicationController
       params[:superuser][:insta_usercomp].nil? || params[:superuser][:insta_usercomp].empty?
       redirect_to root_path
       flash[:notice] = "Username cannot be empty"
+    elsif params[:superuser][:insta_username] == params[:superuser][:insta_usercomp]
+      redirect_to root_path
+      flash[:notice] = "Try to compete with someone else than yourself ;)"
     else
       begin
         create
@@ -16,10 +19,10 @@ class PagesController < ApplicationController
         redirect_to root_path
         flash[:notice] = "Username not found, check spelling or with another one"
       end
-      if @superuser.engagement_rate = 0
+      if @superuser.engagement_rate == 0
         flash[notice] = "You didn't get point for engagement rate because your account is set as private"
       end
-      if @usercmp.engagement_rate = 0
+      if @usercmp.engagement_rate == 0
         flash[notice] = "Your opponents didn't get point for engagement rate because his account is set as private"
       end
     end

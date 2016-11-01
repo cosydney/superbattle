@@ -4,8 +4,8 @@ class Superuser < ActiveRecord::Base
   def scrape_insta
     @profile = InstaScrape.user_info(self.insta_username)
     @posts = InstaScrape.user_posts(self.insta_username)
-    self.following_count = @profile.following_count.to_i
-    self.number_of_posts = @profile.post_count
+    self.following_count = @profile.following_count.scan(/\d*/).join.to_i
+    self.number_of_posts = @profile.post_count.scan(/\d*/).join.to_i
     self.image = @profile.image
     self.engagement_rate = engagement_rate
     self.description = @profile.description
@@ -37,8 +37,9 @@ class Superuser < ActiveRecord::Base
     def super_score
       # getting points for number of followers
       score = case self.followers_count
-      when 0..500 then 3.5
-      when 500..1000 then 7
+      when 0..500 then 2
+      when 500..800 then 3.5
+      when 800..1000 then 7
       when 1000..3000 then 10.5
       when 3000..7000 then 14
       when 7000..10000 then 17.5
@@ -82,8 +83,7 @@ class Superuser < ActiveRecord::Base
         when 40..60 then 28
         when 80..1000 then 35
         end
-      end
-      if self.followers_count >= 500 && self.followers_count <= 5000
+      elsif self.followers_count >= 500 && self.followers_count <= 5000
         score += case self.engagement_rate.round
         when 2..4 then 7
         when 4..7 then 14
@@ -91,11 +91,11 @@ class Superuser < ActiveRecord::Base
         when 10..15 then 28
         when 15..1000 then 35
         end
-      end
-      if self.followers_count > 5000
+      else #self.followers_count >= 5000
         score += case self.engagement_rate.round
-        when 0..1 then 7
-        when 1..2 then 14
+        when 0..1 then 3
+        when 1..2 then 7
+        when 2..4 then 14
         when 4..7 then 21
         when 7..10 then 28
         when 10..1000 then 35

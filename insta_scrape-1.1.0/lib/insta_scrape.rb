@@ -92,7 +92,7 @@ module InstaScrape
   def self.get_likes
     @posts.first(10).each do |post|
       visit post.link
-      post.likes = page.first('section span span').text.to_i
+      post.likes = page.first('section span span').text.scan(/\d*/).join.to_i
     end
   end
 
