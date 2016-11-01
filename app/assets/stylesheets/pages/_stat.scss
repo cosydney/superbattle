@@ -1,14 +1,89 @@
+h1{
+  margin-top: 0px;
+  padding-top: 35px;
+}
+
 .stat-container {
   background-color: grey;
+}
+
+.info-container {
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 body > div {
   background-color: $background-gray;
 }
+
+.vertical_line {
+    border-right: thick solid black;
+    height: 335px;
+    position: absolute;
+    left: -5px;
+}
+
+#username {
+  margin-top: 40px;
+  font-weight: bolder;
+  font-size: 22px;
+  color: #464a52;
+}
+
+.winner {
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+.mask {
+  -webkit-filter: drop-shadow(1px 1px 20px white);
+  filter:         drop-shadow(1px 1px 20px white);
+  width: 180px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10px;
+  // width: 800%;
+}
+
+.mask_name {
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.mask_p {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.stats {
+  color: #464a52;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 2px;
+}
+
+.stat_p {
+  color:white;
+  padding-bottom: 6px;
+}
+
 .text-red {
   color: $red;
 }
 
 .text-blue {
   color: $blue;
+}
+
+.tbd {
+  background-image: linear-gradient(-225deg, #4f2f4c 40%, rgba(14,0,61,0.08) 40%)
 }
