@@ -19,12 +19,22 @@ class PagesController < ApplicationController
       if @superuser.engagement_rate = 0
         flash[notice] = "You didn't get point for engagement rate because your account is set as private"
       end
+      if @usercmp.engagement_rate = 0
+        flash[notice] = "Your opponents didn't get point for engagement rate because his account is set as private"
+      end
     end
   end
 
   def create
     @superuser = Superuser.new
     @superuser = Superuser.create(superuser_params)
+
+    # Changing params to make stats for the opponents
+    tmp = params[:superuser][:insta_username]
+    params[:superuser][:insta_username] = params[:superuser][:insta_usercomp]
+    params[:superuser][:insta_usercomp] = tmp
+    @usercmp = Superuser.new
+    @usercmp = Superuser.create(superuser_params)
   end
 
   def superuser_params

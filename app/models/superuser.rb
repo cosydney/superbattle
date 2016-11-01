@@ -11,7 +11,7 @@ class Superuser < ActiveRecord::Base
     self.description = @profile.description
     self.followers_count = followers_count
     self.super_score = super_score
-    self.save
+    # self.save
   end
 
   def followers_count
