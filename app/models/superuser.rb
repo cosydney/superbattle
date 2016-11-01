@@ -16,25 +16,29 @@ class Superuser < ActiveRecord::Base
 
   def followers_count
     count = @profile.follower_count
-      # instagram will return 10k for 10000 followers.
-      if count.include? 'k'
-        count = count.gsub('k', '00')
-      end
-      count = count.scan(/\d*/).join.to_i
-      count
+    # instagram will return 10k for 10000 followers.
+    if count.include? 'k'
+      count = count.gsub('k', '00')
     end
+    count = count.scan(/\d*/).join.to_i
+    count
+  end
 
 
-    def engagement_rate
-      total_like = 0
+  def engagement_rate
+    total_like = 0
+    if (@posts == nil)
+      engagement_rate = 0
+    else
       @posts.each do |post|
         total_like += post.likes
       end
       engagement_rate = ((total_like / 10.0) / followers_count) * 100
       engagement_rate.round(2)
     end
+  end
 
-    def super_score
+  def super_score
       # getting points for number of followers
       score = case self.followers_count
       when 0..500 then 2

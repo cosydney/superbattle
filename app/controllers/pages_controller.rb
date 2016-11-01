@@ -4,6 +4,11 @@ class PagesController < ApplicationController
   def home
     @superuser = Superuser.new
   end
+
+  def superscore
+
+  end
+
   def stat
     if params[:superuser][:insta_username].nil? || params[:superuser][:insta_username].empty? ||
       params[:superuser][:insta_usercomp].nil? || params[:superuser][:insta_usercomp].empty?
@@ -14,10 +19,11 @@ class PagesController < ApplicationController
       flash[:notice] = "Try to compete with someone else than yourself ;)"
     else
       begin
+
         create
       rescue Capybara::ElementNotFound
         redirect_to root_path
-        flash[:notice] = "Username not found, check spelling or with another one"
+        flash[:notice] = "Username not found, please check that it exists "
       end
       if @superuser.engagement_rate == 0
         flash[notice] = "You didn't get point for engagement rate because your account is set as private"

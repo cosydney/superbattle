@@ -1,4 +1,4 @@
-<%= render 'flashes' %>
+  <div class="text-center"> <%= render 'flashes' %></div>
 
 <div class="text-center">
   <h1>Super battle</h1>
@@ -6,24 +6,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">
-      <span class="text-center">  <%= image_tag @superuser.image %></span>
-      <h2>User name <%= @superuser.insta_username %></h2>
-      <h2> Number of post  <%= @superuser.number_of_posts %></h2>
-      <h2> Follower count  <%= @superuser.followers_count %></h2>
-      <h2> Following count <%= @superuser.following_count %></h2>
-      <h2> Engagement rate <%= @superuser.engagement_rate %> %</h2>
-      <h2> Description length <%= @superuser.description.length %> characters</h2>
-      <h2> Super score <%= @superuser.super_score %> /100</h2>
+      <p>User name <%= @superuser.insta_username %></p>
+      <h1 class="red"> WINS </h1>
+      <p> Number of post  <%= @superuser.number_of_posts %></p>
+      <p> Follower count  <%= @superuser.followers_count %></p>
+      <p> Following count <%= @superuser.following_count %></p>
+      <p> Engagement rate <%= @superuser.engagement_rate %> %</p>
+      <p> Description length <%= @superuser.description.length %> characters</p>
+      <p> Super score <%= @superuser.super_score %> /100</p>
     </div>
+
+
+
     <div class="col-xs-12 col-md-6">
-      <span class="text-center">  <%= image_tag @usercmp.image %></span>
-      <h2>User name <%= @usercmp.insta_username %></h2>
-      <h2> Number of post  <%= @usercmp.number_of_posts %></h2>
-      <h2> Follower count  <%= @usercmp.followers_count %></h2>
-      <h2> Following count <%= @usercmp.following_count %></h2>
-      <h2> Engagement rate <%= @usercmp.engagement_rate %> %</h2>
-      <h2> Description length <%= @usercmp.description.length %> characters</h2>
-      <h2> Super score <%= @usercmp.super_score %> /100</h2>
     </div>
 
   </div>
