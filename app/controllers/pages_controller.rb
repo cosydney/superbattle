@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def superscore
-
+    @superuser = Superuser.new
   end
 
   def stat

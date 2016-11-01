@@ -3,8 +3,8 @@ h1{
   padding-top: 35px;
 }
 
-.stat-container {
-  background-color: grey;
+.stat-container {
+  background-color: $background-gray;
 }
 
 .info-container {
@@ -12,12 +12,8 @@ h1{
   margin-right: 70px;
 }
 
-body > div {
-  background-color: $background-gray;
-}
-
 .vertical_line {
-    border-right: thick solid black;
+    border-right: 2px solid black;
     height: 335px;
     position: absolute;
     left: -5px;
@@ -76,6 +72,68 @@ body > div {
   padding-bottom: 6px;
 }
 
+.share {
+  height: 710px;
+  background-image: linear-gradient(-182deg, #aab0be 9%, #464a52 9.5%);
+}
+
+.restart {
+  margin-top: 80px;
+}
+
+.yellow {
+  color: $yellow;
+  font-weight: bold;
+}
+
+.btn-share {
+    padding: 10px 0px 0px 0px;
+    width: 83px;
+    border-radius: 108px;
+
+    background-color: #aab0be;
+    color: #464a52;
+    // width: 60px;
+    border-radius: 40px;
+    box-shadow: 2px 2px 0px white;
+    margin: 10px;
+}
+
+.btn-share:hover{
+  transition: 0.2s ease;
+  color: $yellow;
+  background-color: white;
+  box-shadow: 1px 1px 0px white;
+}
+
+.btn-days {
+  width: 118px;
+}
+.btn_text {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.btn_text:hover{
+  color: $yellow;
+}
+
+.email_form {
+  border-width: 1px;
+  font-weight: bold;
+  color: #464a52;
+}
+
+.btn-ok {
+  padding: 3px;
+  font-weight: bold;
+}
+
+.btn-ok:hover {
+  border: none;
+  box-shadow: 1px 1px 0px white;
+}
+
 .text-red {
   color: $red;
 }
@@ -84,6 +142,12 @@ body > div {
   color: $blue;
 }
 
-.tbd {
-  background-image: linear-gradient(-225deg, #4f2f4c 40%, rgba(14,0,61,0.08) 40%)
+.credits {
+  color: #aab0be;
+  font-size: 10px;
+}
+
+.logo {
+  color: #aab0be;
+  font-size: 40px;
 }
