@@ -5,10 +5,6 @@ class PagesController < ApplicationController
     @superuser = Superuser.new
   end
 
-  def superscore
-    @superuser = Superuser.new
-  end
-
   def stat
     if params[:superuser][:insta_username].nil? || params[:superuser][:insta_username].empty? ||
       params[:superuser][:insta_usercomp].nil? || params[:superuser][:insta_usercomp].empty?

@@ -1,33 +1,108 @@
-  <div class="text-center"> <%= render 'flashes' %></div>
-
-<div class="text-center">
-  <h1>Super battle</h1>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-        <%= @superuser.image %>
-      <p>User name <%= @superuser.insta_username %></p>
-      <p> Number of post  <%= @superuser.number_of_posts %></p>
-      <p> Follower count  <%= @superuser.followers_count %></p>
-      <p> Following count <%= @superuser.following_count %></p>
-      <p> Engagement rate <%= @superuser.engagement_rate %> %</p>
-      <p> Description length <%= @superuser.description.length %> characters</p>
-      <p> Super score <%= @superuser.super_score %> /100</p>
-    </div>
-
-
-
-    <div class="col-xs-12 col-md-6">
-         <%= @usercmp.image %>
-      <p>User name <%= @usercmp.insta_username %></p>
-      <p> Number of post  <%= @usercmp.number_of_posts %></p>
-      <p> Follower count  <%= @usercmp.followers_count %></p>
-      <p> Following count <%= @usercmp.following_count %></p>
-      <p> Engagement rate <%= @usercmp.engagement_rate %> %</p>
-      <p> Description length <%= @usercmp.description.length %> characters</p>
-      <p> Super score <%= @usercmp.super_score %> /100</p>
-    </div>
-
+<div class="stat-container">
+  <div class="text-center">
+    <%= render 'flashes' %>
   </div>
-</div>
+
+  <div class="text-center">
+    <h1>Super battle</h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="info-container text-center">
+          <h1 id="username">
+            <%= @superuser.insta_username %></h1>
+            <% if (@superuser.super_score > @usercmp.super_score) %>
+            <h2 class="text-red winner">
+              Wins </h2>
+              <% else %>
+              <h2 class="text-blue winner">
+                Loses </h2>
+                <% end %>
+                <%= image_tag 'mask.png', class: "mask shadowed"  %>
+                <h2 class="mask_name">The furious Giant</h2>
+                <h3 class="mask_p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, voluptates.</h3>
+                <br>
+                <h4 class="stats"> <%= @superuser.followers_count %> Followers </h4>
+                <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, explicabo.</p>
+                <h4 class="stats"><%= @superuser.engagement_rate %> commitement rate</h4>
+                <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, quibusdam.</p>
+                <h4 class="stats"><%= @superuser.number_of_posts %> Number of posts</h4>
+                <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, eligendi.</p>
+              </div>
+            </div>
+
+
+            <div class="col-xs-12 col-md-6">
+              <div class="info-container text-center">
+                <h1 id="username">
+                  <%= @usercmp.insta_username %> </h1>
+                  <% if @superuser.super_score < @usercmp.super_score %>
+                  <h2 class="text-red winner">
+                    Wins </h2>
+                    <% else %>
+                    <h2 class="text-blue winner">
+                      Loses </h2>
+                      <% end %>
+
+                      <%= image_tag 'mask2.png', class: "mask" %>
+                      <div class="vertical_line">
+                      </div>
+                      <h2 class="mask_name">
+                        El Moucho
+                      </h2>
+                      <h3 class="mask_p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, voluptates.</h3>
+                      <br>
+                      <h4 class="stats"> <%= @usercmp.followers_count %> Followers</h4>
+                      <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, explicabo.</p>
+                      <h4 class="stats"> <%= @usercmp.engagement_rate %> commitment rate</h4>
+                      <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, quibusdam.</p>
+                      <h4 class="stats"> <%= @usercmp.number_of_posts %> Number of posts</h4>
+                      <p class="stat_p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, eligendi.</p>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+            <div class="share text-center">
+              <button class="restart"> <%= link_to "Restart", root_path %></button>
+              <h1 class="yellow">Partage sur les réseaux sociaux !</h1>
+              <ul class="list-inline">
+                <li class="btn-share">
+                  <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                </li>
+                <li class="btn-share">
+                  <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                </li>
+                <li class="btn-share">
+                  <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                </li>
+              </ul>
+              <h1 class="yellow">Get More !</h1>
+              <p class="stat_p">
+                Ne naisse pas la garde !
+                Laisse ton mail et découvre contre qui <br>
+                et combien de fois tu as été affronté à ton insu !
+              </p>
+              <p class="stat_p">
+                Je veux recevoir ces infos:
+                <ul class="list-inline">
+                  <li class="btn-share btn-days"><p class="btn_text"> à chaque fois </p></li>
+                  <li class="btn-share btn-days"><p class="btn_text"> chaque jour </p></li>
+                  <li class="btn-share btn-days"><p class="btn_text"> chaque mois </p></li>
+                  <li class="btn-share btn-days"><p class="btn_text"> chaque semaine </p></li>
+                </ul>
+              </p>
+              <%= simple_form_for(@superuser, html: {class: "form-inline"}, url: stat_path) do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :insta_username, label: false,required: false, placeholder: 'entre ton adresse mail! ',input_html: {class: "email_form", id: "email_input"} %>
+              <%= f.button :submit , class: 'btn-share btn-ok', value: "OK" %>
+              <% end %>
+              <br>
+              <h1 class="logo">Super Battle</h1>
+              <br>
+              <br>
+              <p class="credits"> Idée originale: Dire Agency / DA: CLub Néon x Pablo Grand Mourcel / Illustrations : Pablo Grand Mourcel </p>
+            </div>
